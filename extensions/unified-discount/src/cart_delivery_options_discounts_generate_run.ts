@@ -3,6 +3,7 @@ import {
   DiscountClass,
   DeliveryInput,
   CartDeliveryOptionsDiscountsGenerateRunResult,
+  CountryCode,
 } from "../generated/api";
 
 export function cartDeliveryOptionsDiscountsGenerateRun(
@@ -10,6 +11,7 @@ export function cartDeliveryOptionsDiscountsGenerateRun(
 ): CartDeliveryOptionsDiscountsGenerateRunResult {
   const firstDeliveryGroup = input.cart.deliveryGroups[0];
   const buyerIdentity = input?.cart?.buyerIdentity
+  const countryCode = firstDeliveryGroup?.deliveryAddress?.countryCode
   if (!firstDeliveryGroup) {
     throw new Error("No delivery groups found");
   }
@@ -25,9 +27,10 @@ export function cartDeliveryOptionsDiscountsGenerateRun(
   if(!buyerIdentity || !buyerIdentity?.customer?.hasTags[0].hasTag){
     return {operations: []};
   }
-  if(firstDeliveryGroup?.deliveryAddress?.countryCode != 'NP'){
-        return {operations: []};
-  }
+  // let eligibleCountries: any = ['CA','NP']
+  // if(eligibleCountries.includes(CountryCode) ){
+  //    return {operations: []};
+  // }
   let option
   for(let deliveryOption of firstDeliveryGroup.deliveryOptions){
     if(deliveryOption.title == 'FedEx 2 Day (2 business days)'){
