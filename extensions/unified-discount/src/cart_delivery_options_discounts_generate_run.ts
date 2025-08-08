@@ -27,6 +27,7 @@ export function cartDeliveryOptionsDiscountsGenerateRun(
   if(!buyerIdentity || !buyerIdentity?.customer?.hasTags[0].hasTag){
     return {operations: []};
   }
+  //console.log("CountryCode",CountryCode)
   // let eligibleCountries: any = ['CA','NP']
   // if(eligibleCountries.includes(CountryCode) ){
   //    return {operations: []};
