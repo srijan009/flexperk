@@ -1,0 +1,34 @@
+query CartInput {
+  cart {
+    buyerIdentity{
+      customer{
+        displayName
+        hasTags(tags: ["BLO"]){
+          hasTag
+          tag
+        }
+      }
+    }
+    lines {
+      merchandise {
+        ... on ProductVariant {
+          product {
+            hasTags(tags: ["Hair Extensions","tools-axs-starterkits"]) {
+              hasTag
+              tag
+            }
+          }
+        }
+      }
+      id
+      cost {
+        subtotalAmount {
+          amount
+        }
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+}

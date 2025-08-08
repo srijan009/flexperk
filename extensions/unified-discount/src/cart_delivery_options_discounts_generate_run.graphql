@@ -1,0 +1,29 @@
+query DeliveryInput {
+  cart {
+    buyerIdentity{
+      customer{
+        displayName
+        hasTags(tags: ["BLO"]){
+          hasTag
+          tag
+        }
+      }
+    }
+    deliveryGroups {
+      id
+      deliveryAddress{
+        countryCode
+      }
+      deliveryOptions{
+        title
+        cost{
+          amount
+        }
+        handle
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+}
