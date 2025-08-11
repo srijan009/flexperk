@@ -3,7 +3,7 @@
 client_id = "868c9ec19da008f15dba3dbc7f292ccd"
 name = "flexperk"
 handle = "flexperk"
-application_url = "https://invalid-international-conduct-supplied.trycloudflare.com"
+application_url = "https://procedures-wednesday-toy-bw.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_discounts"
 
 [auth]
 redirect_urls = [
-  "https://invalid-international-conduct-supplied.trycloudflare.com/auth/callback",
-  "https://invalid-international-conduct-supplied.trycloudflare.com/auth/shopify/callback",
-  "https://invalid-international-conduct-supplied.trycloudflare.com/api/auth/callback"
+  "https://procedures-wednesday-toy-bw.trycloudflare.com/auth/callback",
+  "https://procedures-wednesday-toy-bw.trycloudflare.com/auth/shopify/callback",
+  "https://procedures-wednesday-toy-bw.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

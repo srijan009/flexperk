@@ -3,7 +3,6 @@ import {
   DiscountClass,
   DeliveryInput,
   CartDeliveryOptionsDiscountsGenerateRunResult,
-  CountryCode,
 } from "../generated/api";
 
 export function cartDeliveryOptionsDiscountsGenerateRun(
@@ -23,15 +22,15 @@ export function cartDeliveryOptionsDiscountsGenerateRun(
   if (!hasShippingDiscountClass) {
     return {operations: []};
   }
-  // check the country code only for NP
+
   if(!buyerIdentity || !buyerIdentity?.customer?.hasTags[0].hasTag){
     return {operations: []};
   }
-  //console.log("CountryCode",CountryCode)
-  // let eligibleCountries: any = ['CA','NP']
-  // if(eligibleCountries.includes(CountryCode) ){
-  //    return {operations: []};
-  // }
+  // check the delivery country code and if its US or CA apply free shipping discount for fedex 2 day(2 bunsiness days)
+  let eligibleCountries: any = ['CA','US']
+  if(!eligibleCountries.includes(countryCode) ){
+     return {operations: []};
+  }
   let option
   for(let deliveryOption of firstDeliveryGroup.deliveryOptions){
     if(deliveryOption.title == 'FedEx 2 Day (2 business days)'){
